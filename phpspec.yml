@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: CommentSentiment
+        psr4_prefix: CommentSentiment
+        src_path: app
