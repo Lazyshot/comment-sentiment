@@ -14,8 +14,7 @@ class CreateCommentsTable extends Migration {
 	{
 		Schema::create('comments', function(Blueprint $table)
 		{
-			$table->increments('id');
-			$table->string('fb_id');
+			$table->string('id');
 			$table->string('post_id');
 
 			$table->bigInteger('from');
@@ -24,7 +23,8 @@ class CreateCommentsTable extends Migration {
 
 			$table->timestamps();
 
-			$this->foreign('post_id')->references('id')->on('posts');
+			$table->primary('id');
+			$table->foreign('post_id')->references('id')->on('posts');
 		});
 	}
 

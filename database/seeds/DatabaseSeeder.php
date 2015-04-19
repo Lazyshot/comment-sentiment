@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use CommentSentiment\Page;
 
 class DatabaseSeeder extends Seeder {
 
@@ -12,9 +13,17 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		Model::unguard();
+		DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+		DB::table('pages')->truncate();
 
-		// $this->call('UserTableSeeder');
+		Page::create([
+			'id' => 102662719805111,
+			'name' => 'Being Mommy',
+			'picture' => 'https://graph.facebook.com/beingmommy/picture',
+			'likes' => 1000000,
+		]);
+
+		DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 	}
 
 }

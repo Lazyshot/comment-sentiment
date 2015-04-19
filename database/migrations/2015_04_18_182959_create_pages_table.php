@@ -14,12 +14,16 @@ class CreatePagesTable extends Migration {
 	{
 		Schema::create('pages', function(Blueprint $table)
 		{
-			$table->increments('id');
-			$table->bigInteger('fb_id');
+			$table->bigInteger('id');
+
+			$table->string('name');
+			$table->string('picture');
+
 			$table->bigInteger('likes');
+
 			$table->timestamps();
 
-			$table->unique('fb_uid');
+			$table->primary('id');
 		});
 	}
 

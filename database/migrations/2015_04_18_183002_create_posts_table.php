@@ -14,8 +14,7 @@ class CreatePostsTable extends Migration {
 	{
 		Schema::create('posts', function(Blueprint $table)
 		{
-			$table->increments('id');
-			$table->string('fb_id');
+			$table->string('id');
 			$table->bigInteger('page_id');
 
 			$table->string('message');
@@ -26,7 +25,8 @@ class CreatePostsTable extends Migration {
 			$table->timestamp('updated_time');
 			$table->timestamps();
 
-			$this->foreign('page_id')->references('id')->on('pages');
+			$table->primary('id');
+			$table->foreign('page_id')->references('id')->on('pages');
 		});
 	}
 
